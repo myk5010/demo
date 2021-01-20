@@ -142,21 +142,21 @@ export const echarts_data = {
 // 初始化测试用例表单
 export const initial_table = [
   {
-    date: "2016-05-03",
+    date: "2021-02-03",
     channel: "渠道一",
     sums: 10,
     success: 5,
     fail: 5,
   },
   {
-    date: "2016-05-03",
+    date: "2021-01-03",
     channel: "渠道二",
     sums: 10,
     success: 5,
     fail: 5,
   },
   {
-    date: "2016-05-03",
+    date: "2021-05-03",
     channel: "渠道三",
     sums: 10,
     success: 5,

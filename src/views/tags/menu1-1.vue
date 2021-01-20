@@ -301,20 +301,34 @@ export default {
     },
     //  查询
     search() {
-      // for (let index = 0; index < this.tableData.length; index++) {
-      //   const element = this.tableData[index];
-      //   console.log(element);
-      //   if(this.channel === element.channel){
-      //     this.tableData = element
-      //   }
-      // }
-      var _this = this
+      const channel = this.channel
+      let start_date = 0
+      let end_date = 0
+      if (this.date.length > 0) {
+        start_date = new Date(this.date[0])
+        end_date = new Date(this.date[1])
+      }
       this.tableData = this.initial_table.filter(function (item) {
-        if (item.indexOf(_this.channel) != -1) {
-          return item;
+        if (start_date == 0 & end_date == 0) {
+          if (channel.length == 0) {
+            return item
+          } else {
+            if (channel == item.channel) {
+              return item
+            }
+          }
+        } else {
+          if (channel.length == 0) {
+            if (new Date(item.date) >= start_date && new Date(item.date) <= end_date) {
+              return item
+            }
+          } else {
+            if (channel == item.channel && new Date(item.date) >= start_date && new Date(item.date) <= end_date) {
+              return item
+            }
+          }
         }
       });
-      1
     },
     // 用户信息图表
     userLine() {
